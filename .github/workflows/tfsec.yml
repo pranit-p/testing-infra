@@ -1,0 +1,27 @@
+name: tfsec
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+
+jobs:
+  tfsec:
+    name: Terraform Security Scan and PR Commenter
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone repo
+        uses: actions/checkout@master
+
+      - name: tfsec
+        uses: aquasecurity/tfsec-pr-commenter-action@v1.0.2
+        with:
+          github_token: ${{ github.token }}
+
+      # - name: Terraform security scan
+      #   uses: aquasecurity/tfsec-action@v1.0.0
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
