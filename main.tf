@@ -42,3 +42,13 @@ resource "aws_secretsmanager_secret_version" "for_testing_integration_url" {
     ignore_changes = [secret_string]
   }
 }
+
+resource "aws_s3_bucket" "b" {
+  bucket = "testing0-s3-bucket"
+  acl    = "private"
+
+  tags = {
+    Name        = "My bucket"
+    Environment = "Dev"
+  }
+}
