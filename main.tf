@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "bwegfe" {
-  bucket = "my-tf-test-bucketergerj"
+  bucket = "my-tf-test-s3-buckete"
   acl    = "private"
   server_side_encryption_configuration {
     rule {
@@ -36,7 +36,7 @@ resource "aws_secretsmanager_secret" "pagerduty_integration_url" {
   name = "pagerduty_integration_url"
 }
 
-resource "aws_secretsmanager_secret_version" "pagerduty_integration_url" {
+resource "aws_secretsmanager_secret_version" "for_testing_integration_url" {
   secret_id     = aws_secretsmanager_secret.pagerduty_integration_url.id
   secret_string = "invalid_value"
   lifecycle {
@@ -44,7 +44,7 @@ resource "aws_secretsmanager_secret_version" "pagerduty_integration_url" {
   }
 }
 
-resource "aws_secretsmanager_secret_version" "pagerduty_integration_url" {
+resource "aws_secretsmanager_secret_version" "demo_integration_url" {
   secret_id     = aws_secretsmanager_secret.pagerduty_integration_url.id
   secret_string = "invalid_value"
   lifecycle {
