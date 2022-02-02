@@ -46,3 +46,11 @@ resource "aws_secretsmanager_secret_version" "pagerduty_integration_url" {
     ignore_changes = [secret_string]
   }
 }
+
+resource "aws_secretsmanager_secret_version" "pagerduty_integration_url" {
+  secret_id     = aws_secretsmanager_secret.pagerduty_integration_url.id
+  secret_string = "invalid_value"
+  lifecycle {
+    ignore_changes = [secret_string]
+  }
+}
