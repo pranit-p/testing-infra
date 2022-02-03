@@ -18,11 +18,11 @@ jobs:
 
       - name: Pull Request Commenter
         if: ${{ github.event_name == 'pull_request' }}
-        uses: aquasecurity/tfsec-pr-commenter-action@main
+        uses: aquasecurity/tfsec-pr-commenter-action@v1.0.2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Terraform security scan
-        uses: aquasecurity/tfsec-action@main
+        uses: aquasecurity/tfsec-action@v1.0.0
         with:
           format: json
